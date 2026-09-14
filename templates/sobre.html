@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ NOME_ESCOLA }} - Quem Somos{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/adapt.css') }}" />{% endblock %}
+
+{% block content %}
+<div class="mb-5 pb-5 px-2">
+    <div class="mb-5 pb-3">
+      <span class="text-info text-uppercase d-block mb-1 font-monospace fw-bold fs-075rem-adpt ls-015em-adpt">// Manifesto Educacional</span>
+      <h1 class="text-info fw-bold m-0">Nossa Instituição</h1>
+      <p class="text-body-secondary small mt-2 opacity-75">Reconhecendo o esforço e transformando o futuro.</p>
+    </div>
+
+    <div class="row g-5 mb-5">
+      <div class="col-lg-12">
+        <div class="pe-md-4">
+          <span class="text-info text-uppercase d-block mb-3 font-monospace fw-bold fs-075rem-adpt ls-015em-adpt">// O Quadro de Honra</span>
+          <h2 class="text-info fw-bold fs-2 mb-4 "><i class="bi bi-star-fill text-warning"></i> Excelência Acadêmica</h2>
+          
+          <p class="small mb-4 lh-lg opacity-75 fs-095rem-adpt text-justify">
+            Acreditamos que a valorização do mérito é um dos pilares mais fortes para incentivar o desenvolvimento dos nossos estudantes. Esta plataforma foi criada exclusivamente para dar visibilidade às conquistas, olimpíadas e premiações que nossos alunos alcançam durante sua jornada escolar.
+          </p>
+          <p class="small mb-0 lh-lg opacity-75 fs-095rem-adpt text-justify">
+            Aqui, cada medalha, certificado ou menção honrosa fica registrado permanentemente, celebrando o talento individual e servindo de inspiração para toda a comunidade acadêmica.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% include 'partials/footer.html' %}
+{% endblock %}

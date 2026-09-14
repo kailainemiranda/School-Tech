@@ -1,0 +1,248 @@
+:root {
+    --dark: rgba(33, 37, 41, 1);
+    --warning: rgba(255, 193, 7, 1);
+    --success: rgba(25, 135, 84, 1);
+    --danger: rgba(220, 53, 69, 1);
+    --info: rgba(13, 202, 240, 1);
+    --secondary: rgba(108, 117, 125, 1);
+    --opacity-20: 0.25rem;
+    --opacity-50: 0.5rem;
+    --opacity-70: 0.75rem;
+}
+/* =========================================================================
+   1. DATATABLES - CUSTOMIZAÇÃO DE BOTÕES E GRADIENTES
+   ========================================================================= */
+/* Remove gradientes e fundos padrão dos botões de exportação/ação do DataTables, forçando o estilo outline verde */
+div.dt-buttons .btn-outline-success {
+    background: transparent !important;
+    background-image: none !important;
+    color: #198754 !important;
+    border: 1px solid #198754 !important;
+    box-shadow: none !important;
+}
+
+/* Define o comportamento de preenchimento do botão ao passar o mouse (hover) */
+div.dt-buttons .btn-outline-success:hover {
+    background-color: #198754 !important;
+    color: #ffffff !important;
+}
+
+/* =========================================================================
+   2. FILTRO INLINE MINIMALISTA (ESTILO PÍLULA)
+   ========================================================================= */
+/* Container principal que agrupa os botões de filtro rápido no painel */
+.pilulas-container {
+    background-color: #111315 !important;
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid #2d3135;
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+/* Estilo base de cada botão (pílula) não selecionado dentro do filtro */
+.btn-pilula {
+    background: transparent;
+    color: #adb5bd !important;
+    border: none !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s ease; /* Transição suave de cor no hover */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Feedback visual sutil ao passar o mouse sobre uma pílula inativa */
+.btn-pilula:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+}
+
+/* Destaca a pílula que representa o filtro atualmente ativo (Fundo Azul) */
+.btn-pilula.ativa {
+    background-color: #0d6efd !important;
+    color: #ffffff !important;
+}
+
+/* Inverte as cores do badge numérico interno quando a pílula correspondente estiver ativa */
+.btn-pilula.ativa .badge {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Badge neutro com cor sólida para os estados não ativos */
+.hard-color-badge {
+    background-color: #495057;
+    color: white;
+}
+
+/* =========================================================================
+   3. CAMPOS DE PESQUISA CUSTOMIZADOS (DATATABLES)
+   ========================================================================= */
+/* Alinha os blocos de busca global do DataTables em linha para as 4 tabelas do painel */
+#containerPesquisaPendencias .dt-search, 
+#containerPesquisaCampanhas .dt-search, 
+#containerPesquisaEstoque .dt-search,
+#containerPesquisaAuditoria .dt-search {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+/* Padroniza o visual dark dos inputs de pesquisa (tamanho, bordas e cor de fundo) */
+#containerPesquisaPendencias .dt-search input, 
+#containerPesquisaCampanhas .dt-search input, 
+#containerPesquisaEstoque .dt-search input,
+#containerPesquisaAuditoria .dt-search input {
+    width: 100% !important;
+    padding: 7px 14px !important;
+    font-size: 0.95rem !important;
+    background-color: #1a1d20 !important;
+    border: 1px solid #495057 !important;
+    border-radius: 6px !important;
+}
+
+/* Oculta a linha de layout superior nativa do wrapper de Pendências para usar o container customizado */
+#tabelaPendencias_wrapper > .dt-layout-row:first-child {
+    display: none !important;
+}
+
+/* Estiliza margem superior do filtro inferior (wrapper) */
+#tabelaPendencias_wrapper .row:last-child, 
+#tabelaInventario_wrapper .row:last-child,
+#tabelaEstoque_wrapper .row:last-child,
+#tabelaAuditoria_wrapper .row:last-child
+{
+    margin-top: 2rem !important;
+}
+
+/* =========================================================================
+   4. COMPONENTES DO BOOTSTRAP (TABS E DROPDOWNS)
+   ========================================================================= */
+/* Efeito de hover nos itens do menu dropdown no modo escuro */
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+}
+
+/* Define a cor padrão do texto das abas (Tabs) não selecionadas */
+.nav-tabs .nav-link {
+  color: #f8f9fa;
+}
+
+/* Altera a cor da borda ao passar o mouse sobre uma aba inativa */
+.nav-tabs .nav-link:hover {
+  border-color: #6c757d;
+}
+
+/* Estiliza especificamente a aba que está aberta/ativa (Fundo escuro e texto em Destaque Verde) */
+.nav-tabs .nav-link.active {
+  background-color: #212529 !important;
+  color: var(--info) !important;
+  font-weight: bold;
+  border-color: #6c757d #6c757d transparent #6c757d !important; /* Remove a borda inferior para fundir com o painel */
+}
+
+/* Correção visual nas setas de ordenação da tabela: Força a cor amarela (warning) nas setas ativas */
+table.dataTable thead th.dt-ordering-asc span.dt-column-order::before,
+table.dataTable thead th.dt-ordering-desc span.dt-column-order::after,
+table.dataTable thead th.dt-ordering-asc::before,
+table.dataTable thead th.dt-ordering-desc::after {
+    color: #ffc107 !important; 
+    opacity: 1 !important; /* Garante visibilidade total sem a opacidade padrão atenuada da biblioteca */
+}
+
+/* =========================================================================
+   5. CHOICES.JS - CUSTOMIZAÇÃO PARA O DARK MODE (AmparoTech)
+   ========================================================================= */
+
+/* Define o estilo base do seletor principal do Choices.js */
+.choices[data-type*="select-one"] .choices__inner {
+    background-color: rgba(108, 117, 125, 0.5) !important;
+    border: 1px solid #6c757d !important;
+    color: white !important;
+    border-radius: 0.375rem;
+    min-height: 38px;
+    padding-bottom: 0px;
+    font-size: 1rem;
+}
+/* Define o estilo do menu suspenso (dropdown) do Choices.js */
+.choices__list--dropdown {
+    background-color: var(--dark) !important;
+    border: 1px solid var(--secondary) !important;
+    color: rgba(243, 241, 241, 0.863) !important;
+}
+/* Destaca a opção selecionável quando está em foco (hover) */
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: rgba(25, 135, 84, 0.5) !important;
+    color: white !important;
+}
+
+
+/* Cor do item ATIVO na lista com a mesma cor geral do dropdown */
+.choices__list--dropdown .choices__item--selectable.is-selected {
+    background-color: var(--dark) !important;
+    color: rgba(243, 241, 241, 0.863) !important;
+    font-weight: normal;
+    text-transform: none;
+}
+/* Estiliza o input de busca do Choices.js */
+.choices__input {
+    background-color: #2b3035 !important;
+    color: var(--warning) !important;
+    
+}
+/* Define a cor do placeholder do campo de busca */
+.choices__input::placeholder { 
+    color: var(--warning) !important;
+    font-weight: 500;
+}
+
+/* Estiliza o item de aviso quando não há resultados encontrados no dropdown */
+.choices__list--dropdown .choices__item.has-no-results {
+    color: rgba(220, 53, 69, 0.75) !important;
+    background-color: var(--dark) !important;
+    font-weight: 500;
+}
+
+/* Ajusta a seta do select fechado */
+.choices[data-type*="select-one"]::after { 
+    border-color: var(--warning) transparent transparent transparent !important; 
+    border-width: 9px 8px 0 8px !important;
+}
+/* Ajusta a seta do select aberto */
+.choices[data-type*="select-one"].is-open::after { 
+    border-color: transparent transparent var(--warning) transparent !important; 
+    border-width: 0 8px 9px 8px !important;
+}
+
+/* =========================================================================
+   6. CORREÇÃO DA VALIDAÇÃO NATIVA (REQUIRED) NO CHOICES.JS
+   ========================================================================= */
+/* O container pai precisa ser relativo */
+.choices {
+    position: relative !important;
+}
+
+/* Força TODOS os selects originais a "existirem" fisicamente na tela, 
+   mas esconde atrás do novo componente. Assim o navegador consegue exibir
+   o balãozinho de erro do required sem quebrar o layout */
+select[data-choice="active"] {
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
